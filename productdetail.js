@@ -1,15 +1,15 @@
 const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get("id"); // Dette fanger tallet efter ?id=
+const id = urlParams.get("id");
 const productContainer = document.querySelector("#results");
 
-// Her bruger vi et andet endpoint, der kun henter ÉT produkt baseret på ID
+// Et andet endpoint, der kun henter ÉT produkt baseret på ID
 const endpoint = `https://dummyjson.com/products/${id}`;
 
 function getProduct() {
   fetch(endpoint)
     .then((res) => res.json())
     .then((data) => {
-      showProduct(data); // Vi sender det enkelte produkt videre
+      showProduct(data); // sender enkelte produkt videre
     });
 }
 function showProduct(product) {
